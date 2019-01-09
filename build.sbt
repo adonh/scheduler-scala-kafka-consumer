@@ -41,7 +41,8 @@ lazy val KafkaClientVersion = "1.0.0"
 
 lazy val sharedSettings = Seq(
   organization := "com.pagerduty",
-  scalaVersion := "2.12.4",
+  scalaVersion := "2.12.8",
+  crossScalaVersions := Seq("2.10.6", "2.11.12", "2.12.8"),
   scalafmtTestOnCompile := true
 )
 
@@ -73,7 +74,6 @@ lazy val testSupport = (project in file("test-support"))
   .settings(publishSettings: _*)
   .settings(
     name := "kafka-consumer-test-support",
-    crossScalaVersions := Seq("2.10.6", "2.11.12", "2.12.4"),
     libraryDependencies ++= Seq(
       "org.scalactic" %% "scalactic" % "3.0.1",
       "org.scalamock" %% "scalamock-scalatest-support" % "3.5.0",
@@ -87,7 +87,6 @@ lazy val main = (project in file("main"))
   .settings(publishSettings: _*)
   .settings(
     name := "kafka-consumer",
-    crossScalaVersions := Seq("2.10.6", "2.11.12", "2.12.4"),
     libraryDependencies ++= Seq(
       "org.apache.kafka" % "kafka-clients" % KafkaClientVersion,
       "org.slf4j" % "slf4j-api" % "1.7.12"
@@ -99,7 +98,7 @@ lazy val partitioned = (project in file("partitioned"))
   .settings(publishSettings: _*)
   .settings(
     name := "kafka-consumer-partitioned",
-    crossScalaVersions := Seq("2.11.12", "2.12.4"),
+    crossScalaVersions := Seq("2.11.12", "2.12.8"),
     libraryDependencies ++= Seq(
       "com.typesafe.akka" %% "akka-stream" % "2.5.3",
       "com.typesafe.akka" %% "akka-stream-kafka" % "0.16",
@@ -109,6 +108,9 @@ lazy val partitioned = (project in file("partitioned"))
   )
 
 lazy val root = (project in file("."))
+  .enablePlugins(CrossPerProjectPlugin)
+  .settings(sharedSettings: _*)
+  .settings(publishSettings: _*)
   .settings(
     publishLocal := {},
     publish := {},

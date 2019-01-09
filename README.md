@@ -1,6 +1,4 @@
-# PagerDuty Kafka Consumer
-
-[![Build Status](https://travis-ci.org/PagerDuty/scala-kafka-consumer.svg?branch=master)](https://travis-ci.org/PagerDuty/scala-kafka-consumer)
+# PagerDuty Kafka Consumer [![CircleCI](https://circleci.com/gh/PagerDuty/scala-kafka-consumer/tree/master.svg?style=svg)](https://circleci.com/gh/PagerDuty/scala-kafka-consumer/tree/master)
 
 This is an open source project!
 
