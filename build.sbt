@@ -41,7 +41,7 @@ lazy val KafkaClientVersion = "1.0.0"
 
 lazy val sharedSettings = Seq(
   organization := "com.pagerduty",
-  scalaVersion := "2.12.8",
+  scalaVersion := "2.11.12",
   crossScalaVersions := Seq("2.10.6", "2.11.12", "2.12.8"),
   scalafmtTestOnCompile := true
 )
